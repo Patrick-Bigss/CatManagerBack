@@ -30,10 +30,8 @@ public class GatoController {
         return comandos.findAll();
     }
 
-
     @GetMapping("/{id}")
-    public GatoEntity buscarGatoPorId(
-            @PathVariable Long id) {
+    public GatoEntity buscarGatoPorId(@PathVariable Long id) {
 
         return comandos.findById(id).orElseThrow();
     }
@@ -62,22 +60,17 @@ public class GatoController {
         return "Gatinho " + nome + " deletado com sucesso!";
     }
 
-
     @GetMapping("/aleatorio")
     public String gatoAleatorio() {
 
-        String url =
-                "https://api.thecatapi.com/v1/images/search";
+        String url = "https://api.thecatapi.com/v1/images/search";
 
-        RestTemplate restTemplate =
-                new RestTemplate();
+        RestTemplate restTemplate = new RestTemplate();
 
-        String resposta =
-                restTemplate.getForObject(
-                        url,
-                        String.class
-                );
+        String resposta = restTemplate.getForObject(url, String.class
+        );
 
         return resposta;
     }
-}
+    }
+
