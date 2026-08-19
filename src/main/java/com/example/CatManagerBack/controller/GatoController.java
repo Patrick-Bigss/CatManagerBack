@@ -2,11 +2,13 @@ package com.example.CatManagerBack.controller;
 
 import com.example.CatManagerBack.entity.GatoEntity;
 import com.example.CatManagerBack.repository.GatoRepository;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/gatinhos")
@@ -19,10 +21,11 @@ public class GatoController {
 
     @PostMapping
     public GatoEntity salvarGatos(
-            @RequestBody GatoEntity usuario) {
+            @RequestBody GatoEntity gato) {
 
-        return comandos.save(usuario);
+        return comandos.save(gato);
     }
+
 
     @GetMapping
     public List<GatoEntity> listarGatos() {
@@ -30,11 +33,14 @@ public class GatoController {
         return comandos.findAll();
     }
 
+
     @GetMapping("/{id}")
-    public GatoEntity buscarGatoPorId(@PathVariable Long id) {
+    public GatoEntity buscarGatoPorId(
+            @PathVariable Long id) {
 
         return comandos.findById(id).orElseThrow();
     }
+
 
     @PutMapping("/{id}")
     public GatoEntity atualizarGato(
@@ -46,31 +52,34 @@ public class GatoController {
         return comandos.save(gato);
     }
 
+
     @DeleteMapping("/{id}")
     public String apagarGato(
-            @PathVariable long id) {
+            @PathVariable Long id) {
 
         GatoEntity gato =
                 comandos.findById(id).orElseThrow();
 
-        String nome = gato.getNome();
+        String name = gato.getName();
 
         comandos.deleteById(id);
 
-        return "Gatinho " + nome + " deletado com sucesso!";
+        return "Gatinho " + name +
+                " deletado com sucesso!";
     }
 
     @GetMapping("/aleatorio")
     public String gatoAleatorio() {
 
-        String url = "https://api.thecatapi.com/v1/images/search";
+        String url =
+                "https://api.thecatapi.com/v1/images/search";
 
-        RestTemplate restTemplate = new RestTemplate();
+        RestTemplate restTemplate =
+                new RestTemplate();
 
-        String resposta = restTemplate.getForObject(url, String.class
+        return restTemplate.getForObject(
+                url,
+                String.class
         );
-
-        return resposta;
     }
-    }
-
+}

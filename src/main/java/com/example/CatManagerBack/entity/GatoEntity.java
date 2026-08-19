@@ -7,14 +7,26 @@ import jakarta.persistence.Id;
 
 @Entity
 public class GatoEntity {
-@Id
-@GeneratedValue(strategy = GenerationType.IDENTITY)
 
-private Long id;
-private String nome;
-private String raca;
-private Integer idade;
-private String cor;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    private String name;
+    private String temperament;
+    private String origin;
+    private String description;
+    private String url;
+
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
 
     public Long getId() {
         return id;
@@ -24,35 +36,39 @@ private String cor;
         this.id = id;
     }
 
-    public String getNome() {
-        return nome;
+
+    public String getName() {
+        return name;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getRaca() {
-        return raca;
+
+    public String getTemperament() {
+        return temperament;
     }
 
-    public void setRaca(String raca) {
-        this.raca = raca;
+    public void setTemperament(String temperament) {
+        this.temperament = temperament;
     }
 
-    public Integer getIdade() {
-        return idade;
+
+    public String getOrigin() {
+        return origin;
     }
 
-    public void setIdade(Integer idade) {
-        this.idade = idade;
+    public void setOrigin(String origin) {
+        this.origin = origin;
     }
 
-    public String getCor() {
-        return cor;
+
+    public String getDescription() {
+        return description;
     }
 
-    public void setCor(String cor) {
-        this.cor = cor;
+    public void setDescription(String description) {
+        this.description = description;
     }
 }
