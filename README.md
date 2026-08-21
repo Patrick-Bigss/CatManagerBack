@@ -16,6 +16,9 @@ A aplicação utiliza a **The Cat API** como fonte externa de dados. O usuário 
 
 Após o cadastro, os dados passam a ser armazenados no **MySQL**, permitindo que o sistema consulte, atualize e exclua os registros salvos.
 
+Repositório do Frontend:
+🔗 Front: https://github.com/Patrick-Bigss/CatAPIManager-front
+
 ### Fluxo principal
 
 ```text
