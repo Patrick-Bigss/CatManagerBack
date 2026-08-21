@@ -225,11 +225,6 @@ application.properties
 é configurada a chave:
 
 thecatapi.key=SUA_CHAVE_AQUI
-⚠️ Importante
-
-Não publique sua chave real da The Cat API no GitHub.
-
-Para projetos públicos, utilize uma variável de ambiente ou outra forma segura de armazenar informações sensíveis.
 
 🗄️ Configuração do MySQL
 
@@ -239,52 +234,12 @@ Exemplo de configuração no application.properties:
 
 spring.datasource.url=jdbc:mysql://localhost:3306/catmanager
 spring.datasource.username=root
-spring.datasource.password=SUA_SENHA
-
+spring.datasource.password=root
 
 spring.jpa.hibernate.ddl-auto=update
 spring.jpa.show-sql=true
 
-Ajuste os valores de acordo com a configuração do seu computador.
 
-▶️ Como executar o projeto
-1. Clone o repositório
-git clone URL_DO_SEU_REPOSITORIO
-2. Abra o projeto
-
-Abra o projeto em uma IDE compatível com Java, como:
-
-IntelliJ IDEA
-Eclipse
-VS Code
-3. Configure o MySQL
-
-Crie o banco de dados:
-
-CREATE DATABASE catmanager;
-4. Configure o application.properties
-
-Informe:
-
-URL do MySQL
-usuário
-senha
-chave da The Cat API
-5. Execute o Spring Boot
-
-Execute a classe principal da aplicação.
-
-O servidor será iniciado normalmente em:
-
-http://localhost:8080
-📌 Principais endpoints
-Método	Endpoint	Função
-GET	/gatinhos	Lista gatos do MySQL
-GET	/gatinhos/racas	Consulta raças na The Cat API
-GET	/gatinhos/id/{id}	Busca pelo ID do MySQL
-POST	/gatinhos	Salva uma raça no MySQL
-PUT	/gatinhos/api/{catApiId}	Atualiza uma raça pelo ID da API
-DELETE	/gatinhos/api/{catApiId}	Exclui uma raça pelo ID da API
 🎯 Objetivo do projeto
 
 O principal objetivo do projeto foi colocar em prática conhecimentos de:
